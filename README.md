@@ -172,6 +172,20 @@ import { singleton } from "~/singleton.server";
 export const prisma = singleton("prisma", () => new PrismaClient());
 ```
 
+### 一覧の作成
+- app/routes/todos.tsx の変更
+- sadcn/uiのTable関連のテーブル コンポーネントの追加
+```
+$ npx shadcn-ui@latest add table
+```
+- app/routes/todos._index.tsx を作成して実装
+```
+
+```
+
+
+
+
 
 
 # Welcome to Remix + Vite!
