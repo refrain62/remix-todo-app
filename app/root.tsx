@@ -7,12 +7,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-// ?urlをつけないとエラーになる
-import stylesheet from "./tailwind.css?url";
 import { Separator } from "@/components/ui/separator";
 import { SideBarNav } from "@/components/side-bar-nav";
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
+// ?urlをつけないとエラーになる
+import stylesheet from "~/tailwind.css?url"
 
+// HeaderのLinkに設定する内容
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
