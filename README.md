@@ -191,6 +191,15 @@ $ npx shadcn-ui@latest add label
 - app/routes/todos.new.tsxファイルを作成し実装
 
 
+## TODOの編集機能
+- app/routes/todos._index.tsx を修正
+- ラジオグループを使うためにコンポーネント追加
+```
+$ npx shadcn-ui@latest add radio-group
+```
+- app/routes/todos.$todoId.edit.tsxを作成し実装
+
+
 
 
 

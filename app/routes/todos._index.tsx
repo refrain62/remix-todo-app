@@ -1,7 +1,7 @@
 // app/routes/todos._index.tsx
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import { Button } from "@/components/ui/button";
+import { useLoaderData, Link } from "@remix-run/react";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -40,7 +40,12 @@ export default function TodosIndex() {
               {todo.done ? "完了" : "未了"}
             </TableCell>
             <TableCell className="w-4/12 space-x-2">
-              <Button>編集</Button>
+              <Link 
+                to={`${todo.id}/edit`}
+                className={buttonVariants()}
+                >
+                編集
+              </Link>
               <Button variant="destructive">削除</Button>
             </TableCell>
           </TableRow>
