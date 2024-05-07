@@ -1,6 +1,6 @@
 // app/routes/todos._index.tsx
 import { json } from "@remix-run/node";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData, Link, Form } from "@remix-run/react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Table,
@@ -46,7 +46,14 @@ export default function TodosIndex() {
                 >
                 編集
               </Link>
-              <Button variant="destructive">削除</Button>
+              {/* あくまで app/routes/$todoid.delete.tsx のアクションを呼ぶので、相対パスを書く */}
+              <Form
+                className="inline-block"
+                action={`${todo.id}/delete`}
+                method="post"
+                >
+                <Button variant="destructive">削除</Button>
+              </Form>
             </TableCell>
           </TableRow>
         ))}

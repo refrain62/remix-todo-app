@@ -200,6 +200,8 @@ $ npx shadcn-ui@latest add radio-group
 - app/routes/todos.$todoId.edit.tsxを作成し実装
 
 
+## TODOの削除機能
+app/routes/todos._index.tsx内にアクションを定義してもよいのですが、Remixではファイル内にaction関数だけ定義することも可能
 
 
 
