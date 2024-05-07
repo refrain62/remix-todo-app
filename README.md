@@ -13,6 +13,10 @@ $ cd remix-todo-app
 $ npm run dev
 ```
 
+## TailWind CSSを導入
+```
+$ npm install -D tailwindcss
+```
 
 
 
