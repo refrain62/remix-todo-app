@@ -212,6 +212,15 @@ TODOの機能は一通り実装済みです。ただし、現実の開発ではA
 - app/routes/users._index.tsx ファイルを作成し実装
 
 
+## Zodによるバリデーション追加（登録ページ）
+https://qiita.com/fsdg-takada/items/1a44e05d0c81d7cd37bb
+必要なライブラリを追加
+```
+$ npm install remix-validated-form @remix-validated-form/with-zod
+```
+- todos.new.tsx に実装
+
+
 
 
 
