@@ -216,11 +216,20 @@ TODOの機能は一通り実装済みです。ただし、現実の開発ではA
 https://qiita.com/fsdg-takada/items/1a44e05d0c81d7cd37bb
 必要なライブラリを追加
 ```
-$ npm install remix-validated-form @remix-validated-form/with-zod
+$ npm install @remix-validated-form/with-zod
 ```
 - todos.new.tsx に実装
 
+## remix-validated-form + Zodによるバリデーション追加（更新ページ）
+https://qiita.com/yeongse-kim-lvgs/items/6b3e61fe490b1576a000
+https://www.remix-validated-form.io/
+https://www.remix-validated-form.io/reference/use-field#touched
 
+必要なライブラリを追加
+```
+$ npm install remix-validated-form @remix-validated-form/with-zod
+```
+- todos.$todoId.edit.tsx に実装
 
 
 
