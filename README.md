@@ -179,9 +179,16 @@ export const prisma = singleton("prisma", () => new PrismaClient());
 $ npx shadcn-ui@latest add table
 ```
 - app/routes/todos._index.tsx を作成して実装
-```
 
+
+## TODO作成機能
+TODO作成機能を実装します。まず、shadcn/uiのInputとLableコンポーネントを使用しますので、それぞれを追加します。
 ```
+$ npx shadcn-ui@latest add input
+$ npx shadcn-ui@latest add label
+```
+- TODO一覧ページから作成ページに繊維するためのリンク作成
+- app/routes/todos.new.tsxファイルを作成し実装
 
 
 
