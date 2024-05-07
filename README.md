@@ -61,8 +61,25 @@ root.tsxでtailwind.cssを読み込み、適用させるように実装します
 ```
 // app/root.tsx
 + import styles from "./tailwind.css"
-
 ```
+
+## 共通レイアウトの作成
+- app/root.tsx の変更
+- shadcn/uiのコンポーネントの追加
+shadcn/uiのSeparatoreコンポーネントを使用します。また、Buttonコンポーネントのスタイルも使用したいため、以下を実行して追加します。
+```
+$ npx shadcn-ui@latest add separator
+$ npx shadcn-ui@latest add button
+```
+- app/components/side-bar-nav.tsxを作成
+- app/routes/_index.tsx の変更
+
+ここまでで、npm run devを実行し、http://localhost:3000/ を開くと左にメニュー、右にコンテンツとなっている画面が表示されます。
+薄赤の部分がapp/root.tsxの共通レイアウト部分で、青部分が_index.tsxの部分となります。
+
+※この時点ではサイドバーのメニューをクリックしても404になる。
+
+
 
 
 
