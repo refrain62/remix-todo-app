@@ -16,7 +16,54 @@ $ npm run dev
 ## TailWind CSSを導入
 ```
 $ npm install -D tailwindcss
+$ npx tailwindcss init
 ```
+
+## shadcn/ui の設定
+```
+$ npx shadcn-ui@latest init
+```
+選択肢が出てくるので選択
+```
+Created Tailwind CSS config file: tailwind.config.js
+PS C:\develop\GitHub\remix-todo-app> npx shadcn-ui@latest init
+√ Would you like to use TypeScript (recommended)? ... no / yes
+√ Which style would you like to use? » Default
+√ Which color would you like to use as base color? » Slate
+√ Where is your global CSS file? ... app/tailwind.css
+√ Would you like to use CSS variables for colors? ... no / yes
+√ Are you using a custom tailwind prefix eg. tw-? (Leave blank if not) ...
+√ Where is your tailwind.config.js located? ... tailwind.config.js
+√ Configure the import alias for components: ... @/components
+√ Configure the import alias for utils: ... @/lib/utils
+```
+postcss.config.cjs を作成して設定
+```
+// postcss.config.cjs
+module.exports = {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  };
+```
+remix.config.js に追記
+```
+/** @type {import('@remix-run/dev').AppConfig} */
+export default {
+  ...
+  tailwind: true,  // 追加
+  postcss: true,   // 追加
+  ...
+};
+```
+root.tsxでtailwind.cssを読み込み、適用させるように実装します。
+```
+// app/root.tsx
++ import styles from "./tailwind.css"
+
+```
+
 
 
 
