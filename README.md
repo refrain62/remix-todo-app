@@ -15,8 +15,8 @@ $ npm run dev
 
 ## TailWind CSSを導入
 ```
-$ npm install -D tailwindcss
-$ npx tailwindcss init
+$ npm install -D tailwindcss postcss autoprefixer concurrently
+$ npx tailwindcss init -p --ts
 ```
 
 ## shadcn/ui の設定
@@ -36,6 +36,16 @@ PS C:\develop\GitHub\remix-todo-app> npx shadcn-ui@latest init
 √ Where is your tailwind.config.js located? ... tailwind.config.js
 √ Configure the import alias for components: ... @/components
 √ Configure the import alias for utils: ... @/lib/utils
+```
+tailwind.config.js に設定
+```
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './@/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+  ],
 ```
 postcss.config.cjs を作成して設定
 ```

@@ -4,7 +4,8 @@ module.exports = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    './app/**/*.{js,jsx,ts,tsx}',
+    './@/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
   prefix: "",
@@ -74,6 +75,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-  tailwind: true,
-  postcss: true,
 }
