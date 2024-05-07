@@ -79,6 +79,11 @@ $ npx shadcn-ui@latest add button
 
 ※この時点ではサイドバーのメニューをクリックしても404になる。
 
+## メニューの飛び先を実装
+- app/routes/todos.tsx を作成
+- app/routes/users.tsx を作成
+
+- サイドバーメニューのアクティブ時の色変更
 
 
 

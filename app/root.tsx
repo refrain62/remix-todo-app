@@ -7,13 +7,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import styls from "./tailwind.css"
+// ?urlをつけないとエラーになる
+import stylesheet from "./tailwind.css?url";
 import { Separator } from "@/components/ui/separator";
 import { SideBarNav } from "@/components/side-bar-nav";
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styls },
+  { rel: "stylesheet", href: stylesheet },
 ];
 
 // meta関数をエクスポートすることで、title等を変更できます。
