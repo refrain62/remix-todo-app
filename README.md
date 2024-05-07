@@ -204,6 +204,16 @@ $ npx shadcn-ui@latest add radio-group
 app/routes/todos._index.tsx内にアクションを定義してもよいのですが、Remixではファイル内にaction関数だけ定義することも可能
 
 
+## User一覧機能実装（APIを呼ぶケース）
+TODOの機能は一通り実装済みです。ただし、現実の開発ではAPIをRemix内ではなく、別に分けて開発したいというケースがあると思います（例えば、ほかのアプリでも使用される共通のAPIをたたく場合など）。
+この場合、RemixはBFF(Backend For Frontend)としての機能を兼ねることとなります。
+
+- app/routes/users.tsx ファイルの実装
+- app/routes/users._index.tsx ファイルを作成し実装
+
+
+
+
 
 
 # Welcome to Remix + Vite!
