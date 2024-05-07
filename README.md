@@ -85,8 +85,92 @@ $ npx shadcn-ui@latest add button
 
 - サイドバーメニューのアクティブ時の色変更
 
+## TODO一覧の作成
 
+### データ操作の準備
+prisma の追加
+```
+$ npm install prisma --save-dev
+```
+Prismaのセットアップ(sqlite)
+```
+$ npx prisma init --datasource-provider sqlite
+```
+prisma/schema.prisma に テーブルの設定
+```
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
 
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Todo {
+  id    Int     @id @default(autoincrement())
+  title String 
+  done  Boolean
+}
+```
+マイグレーションの実行
+```
+$ npx prisma migrate dev --name init
+```
+初期データの設定
+prisma/script.js というファイルを作成し、その中に初期データを挿入する
+```
+// prisma/script.js
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+async function main() {
+  await prisma.todo.create({
+    data: {
+      title: "todo1",
+      done: true,
+    },
+  });
+}
+
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
+
+```
+以下を実行したうえで、npx prisma studioを実行し、データが挿入されていることを確認します。
+```
+$ node prisma/script.js 
+$ npx prisma studio
+```
+最後にPrismaClientインスタンスをシングルトンとして扱うように実装します。app/singleton.server.tsとapp/db.server.tsファイルを作成し、それぞれ以下のように実装します。
+```
+// app/singleton.server.ts
+export const singleton = <Value>(
+  name: string,
+  valueFactory: () => Value
+): Value => {
+  const g = global as any;
+  g.__singletons ??= {};
+  g.__singletons[name] ??= valueFactory();
+  return g.__singletons[name];
+};
+```
+```
+// app/db.server.ts
+import { PrismaClient } from "@prisma/client";
+import { singleton } from "~/singleton.server";
+
+export const prisma = singleton("prisma", () => new PrismaClient());
+```
 
 
 
